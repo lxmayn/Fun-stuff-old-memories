@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="525.0" prefWidth="920.0" style="-fx-background-color: #A6D6FF;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timeline.controllers.AdminScreenController">
+    <children>
+        <Pane prefHeight="22.0" prefWidth="921.0" style="-fx-background-color: #083863;">
+            <children>
+                <Label id="closeLabel" fx:id="closeScreen" alignment="TOP_RIGHT" layoutX="899.0" layoutY="-4.0" onMouseClicked="#exitApp" prefHeight="30.0" prefWidth="16.0" text="x" textFill="WHITE">
+                    <font>
+                        <Font size="20.0" />
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Pane prefHeight="525.0" prefWidth="109.0" style="-fx-background-color: #083863;">
+            <children>
+                <Button layoutX="15.0" layoutY="477.0" mnemonicParsing="false" onAction="#logoutClicked" prefWidth="80.0" style="-fx-background-color: #F04747;" text="Logout" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+                <Separator layoutX="13.0" layoutY="42.0" prefHeight="8.0" prefWidth="85.0" />
+                <Label fx:id="userStatusLbl" layoutX="38.0" layoutY="25.0" style="-fx-text-fill: #ffffff;" text="Admin" textFill="WHITE" />
+            </children>
+        </Pane>
+        <TabPane fx:id="tabPane" layoutX="107.0" layoutY="22.0" prefHeight="503.0" prefWidth="814.0" style="-fx-background-color: #ffffff;" tabClosingPolicy="UNAVAILABLE" tabMinHeight="40.0" tabMinWidth="145.0">
+            <tabs>
+                <Tab onSelectionChanged="#refreshGraphicTimeline" style="-fx-background-color: #083863;" text="Main">
+                    <content>
+                        <AnchorPane prefHeight="456.0" prefWidth="602.0" style="-fx-background-color: #083863;">
+                            <children>
+                                <Button fx:id="userList" layoutX="721.0" layoutY="401.0" mnemonicParsing="false" onAction="#showUserList" prefWidth="80.0" style="-fx-background-color: #00EFD1;" text="Users" textFill="WHITE" />
+                                <Text fx:id="TimelineConfirmation" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="250.00000596046448" />
+                                <Button layoutX="837.0" layoutY="414.0" mnemonicParsing="false" style="-fx-background-color: #F04747;" text="Log out" />
+                        <ScrollPane hbarPolicy="NEVER" layoutX="14.0" layoutY="14.0" prefHeight="367.0" prefWidth="769.0" style="-fx-background-color: #083863;" vbarPolicy="NEVER">
+                           <content>
+                              <VBox fx:id="graphicTimeline" prefHeight="387.0" prefWidth="775.0" spacing="10.0" style="-fx-background-color: #083863;">
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="eventTab" style="-fx-background-color: #083863;" text="Events">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #083863;">
+                            <children>
+                                <TableView fx:id="tableView1" layoutX="24.0" layoutY="29.0" onMousePressed="#eventTableClicked" prefHeight="348.0" prefWidth="150.0">
+                                    <columns>
+                                        <TableColumn fx:id="timelineNameCol1" prefWidth="149.0" style="fx-background-color: #083863;" text="Timelines" />
+                                    </columns>
+                                </TableView>
+                                <TableView fx:id="tableViewEvent" layoutX="200.0" layoutY="29.0" onMousePressed="#eventItemClicked" prefHeight="348.0" prefWidth="300.0">
+                                    <columns>
+                                        <TableColumn fx:id="eventNameCol1" prefWidth="100.0" text="Name" />
+                                        <TableColumn fx:id="eventStartDateCol2" prefWidth="50.0" text="Start" />
+                                        <TableColumn fx:id="eventEndDateCol3" prefWidth="50.0" text="End" />
+                                        <TableColumn fx:id="eventDescCol4" prefWidth="100.0" text="Desc" />
+                                    </columns>
+                                </TableView>
+                                <TextField fx:id="addEventChange" layoutX="538.0" layoutY="29.0" prefHeight="25.0" prefWidth="220.0" promptText="Name" style="-fx-prompt-text-fill: gray;" />
+                                <Button fx:id="createEventButton" layoutX="720.0" layoutY="241.0" mnemonicParsing="false" onAction="#editClicked" style="-fx-background-color: #00ACEA;" text="Add" textFill="WHITE" />
+                                <Button fx:id="updateEventButton" layoutX="667.0" layoutY="241.0" mnemonicParsing="false" onAction="#updateEvent" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #00ACEA;" text="Save changes" textFill="WHITE" />
+                                <Button fx:id="newEventButton" layoutX="667.0" layoutY="278.0" mnemonicParsing="false" onAction="#newEventButtonClicked" prefWidth="95.0" style="-fx-background-color: #00EFD1;" text="New Event" textFill="WHITE" />
+                                <Button fx:id="deleteEventButton" layoutX="667.0" layoutY="350.0" mnemonicParsing="false" onAction="#deleteEvent" prefHeight="26.0" prefWidth="95.0" style="-fx-background-color: #F04747;" text="Delete" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                                <TextField fx:id="addEventDesc" alignment="TOP_LEFT" layoutX="538.0" layoutY="71.0" prefHeight="78.0" prefWidth="220.0" promptText="Description" style="-fx-prompt-text-fill: gray;" />
+                                <TextField fx:id="addEventStart" layoutX="538.0" layoutY="165.0" prefHeight="25.0" prefWidth="75.0" promptText="Start" style="-fx-prompt-text-fill: gray;" visible="false" />
+                                <TextField fx:id="addEventEnd" layoutX="682.0" layoutY="165.0" prefHeight="25.0" prefWidth="75.0" promptText="End" style="-fx-prompt-text-fill: gray;" visible="false" />
+                                <Label layoutX="641.0" layoutY="153.0" text="-" textFill="WHITE">
+                                    <font>
+                                        <Font size="33.0" />
+                                    </font>
+                                </Label>
+                                <DatePicker fx:id="eventDateStart" layoutX="537.0" layoutY="165.0" prefHeight="25.0" prefWidth="85.0" promptText="Start" style="-fx-prompt-text-fill: gray;" />
+                                <DatePicker fx:id="eventDateEnd" layoutX="669.0" layoutY="165.0" prefHeight="25.0" prefWidth="85.0" promptText="End" style="-fx-prompt-text-fill: gray;" />
+                                <Button layoutX="535.0" layoutY="242.0" mnemonicParsing="false" onAction="#addPicClicked" prefWidth="95.0" style="-fx-background-color: #00ACEA;" text="Add a picture" textFill="WHITE" AnchorPane.leftAnchor="535.0" />
+
+                                <ImageView fx:id="show" fitHeight="61.0" fitWidth="93.0" layoutX="535.0" layoutY="319.0" opacity="0.75" pickOnBounds="true" preserveRatio="true" />
+
+                                <Label id="closeLabel" fx:id="closeImage" alignment="TOP_RIGHT" layoutX="605.0" layoutY="319.0" onMouseClicked="#deleteImg" prefHeight="30.0" prefWidth="16.0" text="x" textFill="#434343">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="timelineTab" style="-fx-background-color: #083863;" text="Timelines">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #083863;">
+                            <children>
+                                <TableView fx:id="tableView" layoutX="24.0" layoutY="29.0" onMouseClicked="#onTableItemSelect" prefHeight="348.0" prefWidth="213.0">
+                                    <columns>
+                                        <TableColumn fx:id="timelineNameCol" prefWidth="199.0" text="Timeline" />
+                                    </columns>
+                                </TableView>
+                                <Button layoutX="687.0" layoutY="348.0" mnemonicParsing="false" onAction="#deleteClicked" prefHeight="22.0" prefWidth="100.0" style="-fx-background-color: #F04747;" text="Delete" textFill="WHITE">
+                                    <opaqueInsets>
+                                        <Insets />
+                                    </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                                </Button>
+                                <Label id="closeLabel" fx:id="closeScreen1" layoutX="895.0" layoutY="14.0" onMouseClicked="#exitApp" text="x" textFill="WHITE">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="timeLineName" alignment="TOP_LEFT" layoutX="259.0" layoutY="28.0" prefHeight="31.0" prefWidth="218.0" promptText="Name" style="-fx-prompt-text-fill: grey;" />
+                                <TextField fx:id="timeLineStart" alignment="TOP_LEFT" layoutX="259.0" layoutY="71.0" prefHeight="31.0" prefWidth="218.0" promptText="Start date" style="-fx-prompt-text-fill: grey;" />
+                                <TextField fx:id="timeLineEnd" alignment="TOP_LEFT" layoutX="259.0" layoutY="118.0" prefHeight="31.0" prefWidth="218.0" promptText="End time" style="-fx-prompt-text-fill: grey;" />
+                                <TextField fx:id="timeLineKey" alignment="TOP_LEFT" layoutX="259.0" layoutY="171.0" prefHeight="31.0" prefWidth="218.0" promptText="Keyword" style="-fx-prompt-text-fill: grey;" />
+                                <TextField fx:id="timeLineDesc" alignment="TOP_LEFT" layoutX="259.0" layoutY="236.0" prefHeight="87.0" prefWidth="218.0" promptText="Description" style="-fx-prompt-text-fill: grey;" />
+                                <TextField fx:id="timeLineBGI" alignment="TOP_LEFT" layoutX="259.0" layoutY="346.0" prefHeight="30.0" prefWidth="220.0" promptText="Background Image" style="-fx-prompt-text-fill: grey;" />
+                                <Button layoutX="500.0" layoutY="348.0" mnemonicParsing="false" onAction="#saveEditPressed" prefWidth="100.0" style="-fx-background-color: #00EFD1;" text="Save changes" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                                <Text layoutX="500.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #fff;" text="Press one of your timelines to view its data and change it or delete the timeline completely." wrappingWidth="189.6708984375" />
+                                <Text fx:id="editErrorMessage" layoutX="259.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: red;" wrappingWidth="218.6708984375" />
+                                <Button layoutX="500.0" layoutY="276.0" mnemonicParsing="false" onAction="#removeBPressed" prefWidth="130.0" style="-fx-background-color: #00ACEA;" text="Remove background" textFill="WHITE" />
+                                <Button layoutX="500.0" layoutY="236.0" mnemonicParsing="false" onAction="#addBPressed" prefWidth="130.0" style="-fx-background-color: #00ACEA;" text="Add background" textFill="WHITE" />
+
+                                <ImageView fx:id="showBG" fitHeight="61.0" fitWidth="100.0" layoutX="687.0" layoutY="246.0" opacity="0.75" pickOnBounds="true" preserveRatio="true">
+
+                                </ImageView>
+                                <Label id="closeLabel" fx:id="closeBG" alignment="TOP_RIGHT" layoutX="758.0" layoutY="246.0" onMouseClicked="#deleteBG" prefHeight="30.0" prefWidth="16.0" text="x" textFill="#434343">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+
+
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="createTab" style="-fx-background-color: #083863;" text="Create">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #083863;">
+                            <children>
+                                <Button fx:id="create" layoutX="670.0" layoutY="370.0" mnemonicParsing="false" onAction="#createTimeline" prefWidth="110.0" style="-fx-background-color: #00EFD1;" text="Create Timeline" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Button>
+                                <TextField fx:id="timelineName" layoutX="48.0" layoutY="98.0" prefHeight="25.0" prefWidth="278.0" promptText="Timeline Name" style="-fx-prompt-text-fill: gray;" />
+                                <TextField fx:id="datePickTextField1" layoutX="48.0" layoutY="152.0" prefHeight="25.0" prefWidth="103.0" visible="false" />
+                                <TextField fx:id="datePickTextField2" layoutX="222.0" layoutY="152.0" prefHeight="25.0" prefWidth="103.0" visible="false" />
+                                <DatePicker fx:id="datePick1" layoutX="48.0" layoutY="152.0" prefHeight="25.0" prefWidth="106.0" promptText="Select date" style="-fx-prompt-text-fill: gray;" />
+                                <DatePicker fx:id="datePick2" layoutX="220.0" layoutY="152.0" prefHeight="25.0" prefWidth="106.0" />
+                                <Label layoutX="180.0" layoutY="140.0" text="-" textFill="WHITE">
+                                    <font>
+                                        <Font size="33.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="timelineImageName" alignment="CENTER" layoutX="496.0" layoutY="102.0" prefHeight="18.0" prefWidth="119.0" text="No image selected" textFill="WHITE" />
+                                <TextField fx:id="keywordsTxtBox" layoutX="48.0" layoutY="239.0" prefHeight="25.0" prefWidth="278.0" promptText="Keywords" style="-fx-prompt-text-fill: gray;" />
+                                <Label layoutX="48.0" layoutY="36.0" text="Create timelines" textFill="WHITE">
+                                    <font>
+                                        <Font name="Gadugi" size="27.0" />
+                                    </font>
+                                </Label>
+                                <CheckBox fx:id="otherDatesCheckBox" layoutX="221.0" layoutY="191.0" mnemonicParsing="false" onAction="#checkBoxClicked" text="Use other dates" textFill="WHITE" />
+                                <Button fx:id="timelineImageSelect" layoutX="398.0" layoutY="98.0" mnemonicParsing="false" onAction="#addBackgroundImage" prefWidth="90.0" style="-fx-background-color: #00ACEA;" text="Select image" textFill="WHITE" />
+                                <TextField fx:id="descriptionTxtBox" alignment="TOP_LEFT" layoutX="47.0" layoutY="290.0" prefHeight="109.0" prefWidth="278.0" promptText="Description" style="-fx-prompt-text-fill: gray;" />
+                                <Text fx:id="TimelineErrorMessage" fill="#ff1a1a" layoutX="48.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="250.0" />
+
+                                <ImageView fx:id="showBGT" fitHeight="98.0" fitWidth="200.0" layoutX="397.0" layoutY="140.0" opacity="0.75" pickOnBounds="true" preserveRatio="true" />
+                                <Label id="closeLabel" fx:id="closeImageC" alignment="TOP_RIGHT" layoutX="571.0" layoutY="136.0" onMouseClicked="#deleteBG" prefHeight="30.0" prefWidth="16.0" text="x" textFill="#434343">
+                                    <font>
+                                        <Font size="20.0" />
+                                    </font>
+                                </Label>
+
+
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab style="-fx-background-color: #083863;" text="Search for Timeline">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #083863;">
+                            <children>
+                                <TableView fx:id="resultsTable" layoutX="14.0" layoutY="117.0" prefHeight="303.0" prefWidth="615.0">
+                                    <columns>
+                              <TableColumn fx:id="ratingColumn" prefWidth="66.0" text="Rating" />
+                                        <TableColumn fx:id="nameColumn" prefWidth="190.0" text="Timeline Name" />
+                                        <TableColumn fx:id="creatorColumn" prefWidth="196.0" text="Created By" />
+                                        <TableColumn fx:id="dateColumn" prefWidth="162.0" text="Date of Creation" />
+                                    </columns>
+                                </TableView>
+                                <TextField fx:id="searchBoxT" layoutX="171.0" layoutY="80.0" prefHeight="25.0" prefWidth="110.0" promptText="by Name" style="-fx-prompt-text-fill: grey;" styleClass="text-input" />
+                                <TextField fx:id="searchBoxC" layoutX="333.0" layoutY="80.0" prefHeight="25.0" prefWidth="110.0" promptText="by Creator" style="-fx-prompt-text-fill: grey;" styleClass="text-input" />
+                                <TextField fx:id="searchBoxD" layoutX="495.0" layoutY="80.0" prefHeight="25.0" prefWidth="110.0" promptText="by Date" style="-fx-prompt-text-fill: grey;" styleClass="text-input" />
+                                <Label fx:id="searchLabel" layoutX="14.0" layoutY="28.0" prefHeight="17.0" prefWidth="89.0" text="Search Box" textFill="WHITE">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                        <TextField fx:id="searchBoxR" layoutX="14.0" layoutY="80.0" prefHeight="25.0" prefWidth="110.0" promptText="by Rating" style="-fx-prompt-text-fill: grey;" styleClass="text-input" />
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </children>
+</Pane>

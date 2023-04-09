@@ -20,6 +20,18 @@
             <artifactId>javafx-fxml</artifactId>
             <version>13</version>
         </dependency>
+    
+      <dependency>
+        <groupId>no.tornado</groupId>
+        <artifactId>tornadofx-android-compat</artifactId>
+        <version>1.0.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.32</version>
+      </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="401.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/13" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timeline.controllers.RegisterScreenController">
+   <children>
+      <AnchorPane layoutX="350.0" prefHeight="401.0" prefWidth="350.0" style="-fx-background-color: #083863;">
+         <children>
+            <Label layoutX="134.0" layoutY="35.0" text="Register" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userField" layoutX="70.0" layoutY="108.0" prefHeight="25.0" prefWidth="211.0" promptText="Username" style="-fx-border-color: white; -fx-border-width: 0 0 1 0; -fx-text-fill: white; -fx-padding: 0 0 1 0; -fx-background-color: transparent;" styleClass="text-input">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <PasswordField fx:id="passField" layoutX="70.0" layoutY="168.0" prefHeight="25.0" prefWidth="211.0" promptText="Password" style="-fx-border-color: white; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 1 0; -fx-background-color: transparent; -fx-text-fill: white;" styleClass="text-input" />
+            <PasswordField fx:id="confirmField" layoutX="70.0" layoutY="226.0" prefHeight="25.0" prefWidth="211.0" promptText="Re-enter Password" style="-fx-border-color: white; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 1 0; -fx-background-color: transparent; -fx-text-fill: white;" styleClass="text-input" />
+            <Button layoutX="70.0" layoutY="288.0" mnemonicParsing="false" onAction="#signupClicked" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: #00ACEA;" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Button>
+            <AnchorPane layoutX="244.0" layoutY="108.0" onMouseEntered="#mouseEntered" onMouseExited="#mouseExited" prefHeight="25.0" prefWidth="38.0">
+               <children>
+                  <Circle fill="#ffffff00" layoutX="19.0" layoutY="2.0" radius="11.0" stroke="WHITE" strokeType="INSIDE">
+                     <cursor>
+                        <Cursor fx:constant="CLOSED_HAND" />
+                     </cursor></Circle>
+                  <Label alignment="CENTER" layoutX="8.0" layoutY="-11.0" prefHeight="25.0" prefWidth="22.0" text="?" textFill="WHITE" />
+               </children></AnchorPane>
+            <TextArea fx:id="helpPrompt" layoutX="102.0" layoutY="58.0" prefHeight="200.0" prefWidth="139.0" visible="false" wrapText="true" />
+            <Label id="goBackBtn" layoutX="14.0" layoutY="7.0" onMouseClicked="#goBack" text="🢀" textFill="WHITE">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Text fx:id="SignUpConfirmation" fill="WHITE" layoutX="70.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="211.0" />
+            <Label id="closeLabel" fx:id="closeScreen" layoutX="325.0" layoutY="1.0" onMouseClicked="#exitApp" text="x" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+           
+               
+         </children>
+      </AnchorPane>
+      <ImageView fitHeight="163.0" fitWidth="162.0" layoutX="102.0" layoutY="57.0">
+         <image>
+            <Image url="@Images/timeline.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="72.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up to explore different timelines and search the ones you are interested in!" textAlignment="CENTER" wrappingWidth="221.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+   </children>
+   <stylesheets>
+      <URL value="@application.css" />
+      <URL value="@application.css" />
+   </stylesheets>
+</AnchorPane>

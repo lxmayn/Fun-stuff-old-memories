@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timeline.controllers.FirstScreenController" >
+   <children>
+      <AnchorPane layoutX="350.0" prefHeight="401.0" prefWidth="350.0" style="-fx-background-color: #083863;">
+         <children>
+            <Label layoutX="143.0" layoutY="36.0" text="Sign in" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <TextField fx:id="userField" layoutX="70.0" layoutY="111.0" prefHeight="25.0" prefWidth="211.0" promptText="Username" style="-fx-border-color: white; -fx-border-width: 0 0 1 0; -fx-text-fill: white; -fx-padding: 0 0 1 0; -fx-background-color: transparent;" styleClass="text-input">
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor></TextField>
+            <PasswordField fx:id="passField" layoutX="69.0" layoutY="173.0" onKeyPressed="#enterPressed" prefHeight="25.0" prefWidth="211.0" promptText="Password" style="-fx-border-color: white; -fx-border-width: 0 0 1 0; -fx-padding: 0 0 1 0; -fx-background-color: transparent; -fx-text-fill: white;" styleClass="text-input" />
+            <Button layoutX="70.0" layoutY="243.0" mnemonicParsing="false" onAction="#loginClicked" onKeyPressed="#enterPressed" onMouseClicked="#loginClicked" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: #00ACEA;" text="Sign in" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button layoutX="70.0" layoutY="286.0" mnemonicParsing="false" onAction="#registerClicked" onMouseClicked="#registerClicked" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: #00EFD1;" text="Register" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+           
+            <Label fx:id="LoginConfirmation" layoutX="69.0" layoutY="77.0" prefHeight="17.0" prefWidth="211.0" textFill="#ff1a1a" />
+            <TextArea fx:id="helpPrompt" layoutX="138.0" layoutY="59.0" prefHeight="200.0" prefWidth="139.0" visible="false" wrapText="true" />
+            <Label id="closeLabel" layoutX="332.0" layoutY="-1.0" onMouseClicked="#exitApp" text="x" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+           
+               
+         </children>
+      </AnchorPane>
+      <Text fill="#090014" layoutX="72.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sign up to explore different timelines and search the ones you are interested in!" textAlignment="CENTER" wrappingWidth="221.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="141.0" layoutY="192.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font size="29.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="163.0" fitWidth="162.0" layoutX="102.0" layoutY="57.0">
+         <image>
+            <Image url="@Images/timeline.png" />
+         </image>
+      </ImageView>
+   </children>
+   <stylesheets>
+      <URL value="@application.css" />
+      <URL value="@application.css" />
+   </stylesheets>
+</AnchorPane>

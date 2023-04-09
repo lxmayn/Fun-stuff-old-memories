@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: #083863;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timeline.controllers.UserScreenController">
+   <children>
+   	<TableView fx:id="tableView" layoutX="20.0" layoutY="69.0" prefHeight="258.0" prefWidth="336.0">
+
+	</TableView>
+   	<Label layoutX="20.0" layoutY="14.0" text="User Information" textFill="WHITE">
+   		<font>
+   			<Font size="28.0" />
+   		</font>
+   	</Label>
+   	<Button fx:id="loadDatafromDB" layoutX="216.0" layoutY="342.0" mnemonicParsing="false" onAction="#toggleAdmin" prefWidth="140.0" style="-fx-background-color: #00ACEA;" text="Toggle admin privilege" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+	   <Button fx:id="bakk" layoutX="20.0" layoutY="342.0" mnemonicParsing="false" onAction="#backToTimeline" prefWidth="120.0" style="-fx-background-color: #00ACEA;" text="Back to timeline" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+   </children>
+</Pane>

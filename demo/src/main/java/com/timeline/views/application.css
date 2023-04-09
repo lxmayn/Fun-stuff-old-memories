@@ -1,0 +1,104 @@
+.button{
+    -fx-background-color: #A6D6FF;
+    -fx-font-weight: bold;
+}
+
+.button:hover{
+    -fx-border-width: 1;
+    -fx-border-color: black;
+}
+.button:pressed{
+    -fx-border-width: 1;
+    -fx-border-color: white;
+}
+
+.text-field{
+    -fx-prompt-text-fill: white;
+}
+
+.text-field:focused{
+    -fx-prompt-text-fill: transparent;
+}
+
+.password-field{
+    -fx-prompt-text-fill: white;
+}
+
+.password-field:focused{
+    -fx-prompt-text-fill: transparent;
+}
+
+#closeLabel{
+    -fx-text-fill: white;
+}
+#closeLabel:hover{
+    -fx-text-fill: gray;
+}
+
+#goBackBtn{
+	-fx-text-fill: white;
+}
+#goBackBtn:hover{
+	-fx-text-fill: gray;
+}
+
+
+/*Change the style of the tableviews here! */
+/*This first changes the text in the header */
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
+
+/*This changes the background color */
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #083863;
+}
+
+/*To here */
+
+.tab{
+    -fx-background-color: #083863;
+}
+
+
+.tab-header-background{
+    -fx-background-color: #083863;
+}
+.tab-pane > .tab-header-area > .headers-region > .tab:hover .focus-indicator{
+	-fx-border-width: 0 0 2 0;
+	
+    -fx-border-color: #CCCDCE;
+    
+    -fx-border-insets: 0,0,-2, 0;
+}
+.tab-label{
+    -fx-text-fill: white;
+    -fx-font-size: 10pt; 
+}
+
+
+.tab-main{
+    -fx-pref-height : 40;
+    -fx-max-height : 40;
+}
+
+
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected .focus-indicator {
+	
+	-fx-border-width: 0 0 2 0;
+	
+    -fx-border-color: white;
+    
+    -fx-border-insets: 0,0,-2, 0;
+   
+    /*-fx-border-radius:  3px;*/
+}
+
+
+
+
+
+

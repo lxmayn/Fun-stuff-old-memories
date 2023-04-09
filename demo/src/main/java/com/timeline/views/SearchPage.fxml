@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="659.0" style="-fx-background-color: #083863;" stylesheets="@application.css" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.timeline.controllers.SearchScreenController">
+
+    <children>
+        <TableView fx:id="resultsTable" layoutX="22.0" layoutY="151.0" prefHeight="406.0" prefWidth="615.0">
+         <columns>
+            <TableColumn fx:id="nameColumn" prefWidth="212.0" style="-fx-background-color: #00ACEA;" text="Timeline Name" />
+            <TableColumn fx:id="creatorColumn" prefWidth="200.0" style="-fx-background-color: #00ACEA;" text="Created By" />
+            <TableColumn fx:id="dateColumn" prefWidth="196.0" style="-fx-background-color: #00ACEA;" text="Date of Creation" />
+         </columns></TableView>
+        <Label fx:id="pageHeader" layoutX="20.0" layoutY="22.0" text="Search Page " textFill="WHITE">
+            <font>
+                <Font size="31.0" />
+            </font>
+        </Label>
+        <Button fx:id="backButton" layoutX="20.0" layoutY="585.0" mnemonicParsing="false" onAction="#backToTimeline" style="-fx-background-color: #00EFD1;" text="Back to timeline" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
+        <TextField fx:id="searchBoxT" layoutX="156.0" layoutY="115.0" prefHeight="25.0" prefWidth="110.0" promptText="by Name" style="-fx-prompt-text-fill: grey;" styleClass="text-input" />
+        <TextField fx:id="searchBoxC" layoutX="286.0" layoutY="115.0" prefHeight="25.0" prefWidth="110.0" promptText="by Creator" style="-fx-prompt-text-fill: grey;" styleClass="text-input" />
+        <TextField fx:id="searchBoxD" layoutX="416.0" layoutY="115.0" prefHeight="25.0" prefWidth="110.0" promptText="by Date" style="-fx-prompt-text-fill: grey;" styleClass="text-input" />
+        <Label fx:id="searchLabel" layoutX="57.0" layoutY="115.0" prefHeight="17.0" prefWidth="89.0" text="Search Box" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+    </children>
+</Pane>
