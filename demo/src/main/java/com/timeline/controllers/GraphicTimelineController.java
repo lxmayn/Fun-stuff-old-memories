@@ -12,6 +12,8 @@ import javafx.scene.shape.SVGPath;
 import javafx.scene.image.*;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class GraphicTimelineController extends AnchorPane {
@@ -48,14 +50,15 @@ public class GraphicTimelineController extends AnchorPane {
 	ObservableList<Integer> rateList = FXCollections.observableArrayList(1, 2, 3, 4, 5);
 
 	public GraphicTimelineController() {
-
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/GraphicalTimeline.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader();
 
 		fxmlLoader.setController(this);
 		fxmlLoader.setRoot(this);
 
 		try {
-			fxmlLoader.load();
+			FileInputStream fileInputStream = new FileInputStream(
+					new File("src/main/java/com/timeline/views/GraphicalTimeline.fxml"));
+			fxmlLoader.load(fileInputStream);
 		} catch (IOException exception) {
 			throw new RuntimeException(exception);
 		}

@@ -81,7 +81,7 @@ public class UserDao {
 
         try {
             String query = "UPDATE user SET admin = '" + isAdmin + "' WHERE " +
-                    "iduser>0 AND timelinedb.iduser = (SELECT timelinedb.iduser WHERE username = '"
+                    "iduser>0 AND iduser = (SELECT iduser WHERE username = '"
                     + username + "')";
             PreparedStatement toggleAdmin = myCon.prepareStatement(query);
 
