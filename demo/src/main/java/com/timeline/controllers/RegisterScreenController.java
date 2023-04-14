@@ -59,7 +59,7 @@ public class RegisterScreenController {
 		// Check if a username and password has been input and if password is legal
 		if (username.length() == 0 && password.length() == 0) {
 			helpPrompt.setText("Please enter a username and password");
-
+			System.out.println("This is a test");
 		} else if (username.length() == 0) {
 			helpPrompt.setText("Please enter a username.");
 

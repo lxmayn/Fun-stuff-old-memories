@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class EventDao {
     Connection myCon = DBConnector.myCon;
 
-
-    public boolean createEvent(String eventName, int idTimeline, String eventDesc, String startTime, String endTime, String imageName) {
+    public boolean createEvent(String eventName, int idTimeline, String eventDesc, String startTime, String endTime,
+            String imageName) {
 
         try {
             // Create prepared statement
@@ -29,39 +29,39 @@ public class EventDao {
             createEvent.setString(5, endTime);
             createEvent.setString(6, imageName);
 
-            //Change .setString to whatever time type we decide to use (ex; .setInt)
-
+            // Change .setString to whatever time type we decide to use (ex; .setInt)
 
             return createEvent.executeUpdate() == 1;
         } catch (SQLException e) {
             return false;
         }
     }
+
     public boolean updateEvent(Event eventForUpdating) {
         try {
-            //Create a prepared statement
+            // Create a prepared statement
 
             String query = "UPDATE event SET"
-                    +" eventname ='" + eventForUpdating.getName()+"', "
-                    +"startTime ='" + eventForUpdating.getStartTime()+"', "
-                    +"endTime ='" + eventForUpdating.getEndTime()+"', "
-                    +"description ='" + eventForUpdating.getDescription()+"', "
-                    +"imageName ='" + eventForUpdating.getImageName()+"' "
+                    + " eventname ='" + eventForUpdating.getName() + "', "
+                    + "startTime ='" + eventForUpdating.getStartTime() + "', "
+                    + "endTime ='" + eventForUpdating.getEndTime() + "', "
+                    + "description ='" + eventForUpdating.getDescription() + "', "
+                    + "imageName ='" + eventForUpdating.getImageName() + "' "
                     + "WHERE idEvent=" + eventForUpdating.getId() + "; ";
 
             PreparedStatement updateEvent = myCon.prepareStatement(query);
-            return updateEvent.executeUpdate()==1;        //Troubleshooting
+            return updateEvent.executeUpdate() == 1; // Troubleshooting
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
 
-
     }
+
     public boolean deleteEventByName(String eventName) {
 
         try {
-            //Create a prepared statement
+            // Create a prepared statement
             String query = "delete from event where eventname ='" + eventName + "'";
             PreparedStatement deleteEvent = myCon.prepareStatement(query);
             int result = deleteEvent.executeUpdate();
@@ -77,9 +77,10 @@ public class EventDao {
         }
         return false;
     }
+
     public boolean deleteEventByID(int id) {
         try {
-            //Create a prepared statement
+            // Create a prepared statement
             String query = "delete from event where idEvent =" + id + "";
             PreparedStatement deleteEvent = myCon.prepareStatement(query);
             int result = deleteEvent.executeUpdate();
@@ -95,6 +96,7 @@ public class EventDao {
         }
         return false;
     }
+
     public ArrayList<Event> getEventsByTimeline(int timelineId) {
         ArrayList<Event> events = new ArrayList<Event>();
         String query = "Select idEvent, eventname, startTime, endTime, description, imageName FROM event " +
@@ -102,7 +104,7 @@ public class EventDao {
         PreparedStatement getTimelines = null;
         try {
             getTimelines = myCon.prepareStatement(query);
-            //Collect result
+            // Collect result
             ResultSet result = getTimelines.executeQuery();
 
             // Create and add timelines to ArrayList
@@ -121,7 +123,6 @@ public class EventDao {
             e.printStackTrace();
             return null;
         }
-
 
     }
 }

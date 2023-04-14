@@ -968,7 +968,7 @@ public class AdminScreenController {
 		File selectedFile = fileChooser.showOpenDialog(null);
 		Image image = new Image(selectedFile.toURI().toString());
 		timelineImageName.setText(selectedFile.getName());
-		//saveToFile(image, selectedFile.getName());
+		// saveToFile(image, selectedFile.getName());
 		showBGT.setImage(image);
 		closeImageC.setVisible(true);
 	}

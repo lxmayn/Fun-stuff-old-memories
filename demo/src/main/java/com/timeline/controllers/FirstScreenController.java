@@ -25,7 +25,6 @@ import javafx.stage.Stage;
  */
 public class FirstScreenController {
 
-	// public Button userBtn;
 	// Variables for textfields
 	@FXML
 	private TextField userField;
@@ -39,8 +38,6 @@ public class FirstScreenController {
 	@FXML
 	private TextArea helpPrompt;
 
-	// private DBConnector dc = new DBConnector();
-	private TimelineDao timelineCon = new TimelineDao();
 	private UserDao userCon = new UserDao();
 
 	// When login button is clicked
